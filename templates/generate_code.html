@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>湖汽课表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="https://cdn1.d5v.cc/CDN/Project/Course/favicon.ico">
+    <link href="https://cdn1.d5v.cc/CDN/Project/Course/tailwindcss%402.2.19_dist_tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white font-sans leading-normal tracking-normal flex flex-col min-h-screen">
+<div class="container mx-auto mt-8 px-4 lg:px-0">
+    <img src="https://cdn1.d5v.cc/CDN/Project/Course/hq.jpeg" alt="logo" class="mx-auto h-24 w-24 md:w-32 md:h-32">
+
+    <h1 class="font-bold text-2xl mb-2 text-center">🌈湖汽 课程表📆</h1>
+    <div class="mb-2 border-l-4 border-blue-500 pl-2 bg-blue-100 rounded-lg list-none" style="padding: 20px">
+        <span id="text" class="font-medium text-gray-700 block text-center">{{ result }}</span>
+        <button id="search-button"
+                class="block mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+                style="box-shadow: 0 4px 0 0 white;">复制口令
+        </button>
+        <div id="copy-success-message" style="display: none;" class="text-center text-green-500">复制成功！</div>
+    </div>
+
+    <h4 class="text-center text-gray-600 mb-8"><img
+            src="https://cdn1.d5v.cc/CDN/Project/Course/WakeUp.png" alt="logo" class="inline-block align-middle mr-2"
+            style="width: 20px">下载WakeUp<span class="text-xl">👉</span>
+        <!--    2024 2 27 替换成直链cdn    -->
+        <button onclick="window.open('https://cdn1.d5v.cc/CDN/Project/Course/wakeup.apk')" class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-800">安卓</button>
+        <button onclick="window.open('appmarket://details?id=com.suda.yzune.wakeupschedule.hmos')" class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-800">鸿蒙</button>
+        <button onclick="window.open('https://apps.apple.com/cn/app/wakeup%E8%AF%BE%E7%A8%8B%E8%A1%A8/id1553402284')" class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-800">IOS</button>
+    </h4>
+
+    <img src="https://cdn1.d5v.cc/CDN/Project/Course/res.png" class="mx-auto" alt="input" style="height: 800px">
+
+</div>
+<footer class="mt-auto bg-gray-200">
+    <p class="text-center text-gray-600 py-4">开发者
+        <a href="https://www.marshmellond.cool" class="text-blue-500 hover:text-blue-800">Marshmellond</a>
+        <a href="" class="text-blue-500 hover:text-blue-800"> Deadmau5v</a> 反馈邮箱: deadmau5v@qq.com
+    </p>
+</footer>
+<script>
+    window.onload = function () {
+        // 获取要复制的文本内容
+        const textToCopy = document.getElementById('text').textContent;
+
+        // 获取复制按钮元素
+        const copyButton = document.getElementById('search-button');
+
+        // 获取复制成功消息元素
+        const copySuccessMessage = document.getElementById('copy-success-message');
+
+        // 添加点击事件处理程序
+        copyButton.addEventListener('click', function () {
+            // 创建一个新的文本输入框元素
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+
+            // 将文本输入框元素添加到页面
+            document.body.appendChild(textArea);
+
+            // 选择文本内容
+            textArea.select();
+
+            // 尝试执行复制操作
+            if (document.execCommand('copy')) {
+                // 复制成功，显示提示消息
+                copySuccessMessage.style.display = 'block';
+
+                // 隐藏提示消息，延时后消失
+                setTimeout(function () {
+                    copySuccessMessage.style.display = 'none';
+                }, 1000); // 1秒后隐藏消息
+            }
+
+            // 移除文本输入框元素
+            document.body.removeChild(textArea);
+        });
+    }
+</script>
+</body>
+</html>

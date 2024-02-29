@@ -1,0 +1,47 @@
+/* 添加搜索结果的样式 */
+.UlSty1 {
+    list-style: none;
+    padding: 0;
+}
+
+.liSty1 {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+
+p {
+    margin: 0; /* 清除上下边距 */
+    padding: 0; /* 清除内边距 */
+    text-align: left;
+}
+
+
+.result-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* 添加一些间距 */
+h2 {
+    margin-top: 20px;
+}
+
+.centered-div {
+    position: absolute; /* 设置绝对定位 */
+    top: 50px;
+    left: 50%; /* 从左侧偏移 50% */
+    transform: translate(-50%, -50%); /* 使用 transform 属性水平和垂直居中 */
+    padding: 20px; /* 可选的内边距，根据需要进行调整 */
+    border: 1px solid #ccc; /* 可选的边框样式，根据需要进行调整 */
+}
+
