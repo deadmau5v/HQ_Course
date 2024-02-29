@@ -1,0 +1,23 @@
+{
+    "name": "HQ_Course",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "..",
+        "args": {
+            "VARIANT": "3.8",
+            "INSTALL_NODE": "false"
+        }
+    },
+    "runArgs": [
+        "-u",
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "seccomp=unconfined"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": ["ms-python.python"],
+    "forwardPorts": [5001],
+    "postCreateCommand": "pip install -r requirements.txt"
+}
