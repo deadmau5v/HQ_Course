@@ -19,7 +19,10 @@ def index():
             query = request.form["search_query"]
         except KeyError:
             query = ""
-        results = utils.search(query)
+        try:
+            results = utils.search(query)
+        except IndexError:
+            return render_template("index.html", results=False, index=True)
         results = [(i, icons.get_icons(i)) for i in results]
         if query.strip() == '' or query is None or "这是来自「WakeUp课程表」的课表分享" in query:
             return render_template("index.html", msg="请输入班级")
