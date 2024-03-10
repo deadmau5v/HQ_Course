@@ -4,8 +4,6 @@
 
 [![Python 3](https://img.shields.io/badge/Python-3.x-blue.svg)]()
 
-[English Docs(暂无)]() | [中文文档]()
-
 ## 用法
 
 ```shell
